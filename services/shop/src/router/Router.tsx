@@ -2,14 +2,16 @@ import { App } from "@/components/App";
 import { Shop } from "@/pages/Shop";
 import { Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import { shopRoutes } from "@packages/shared/src/routes/shop";
+import { UserCard } from "@packages/shared/src/components/UserCard";
 
 const routes = [
   {
-    path: "/shop",
+    path: shopRoutes.root,
     element: <App />,
     children: [
       {
-        path: "/shop/main",
+        path: shopRoutes.main,
         element: (
           <Suspense fallback={"Loading..."}>
             <Shop />
@@ -17,10 +19,13 @@ const routes = [
         ),
       },
       {
-        path: "/shop/second",
+        path: shopRoutes.second,
         element: (
           <Suspense fallback={"Loading..."}>
-            <div style={{ color: "green" }}>second</div>
+            <div>
+              <h2>From Shop:</h2>
+              <UserCard />
+            </div>
           </Suspense>
         ),
       },

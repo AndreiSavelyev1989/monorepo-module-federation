@@ -2,14 +2,16 @@ import { App } from "@/components/App";
 import { About } from "@/pages/About";
 import { Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import { adminRoutes } from "@packages/shared/src/routes/admin";
+import { UserCard } from "@packages/shared/src/components/UserCard";
 
 const routes = [
   {
-    path: "/admin",
+    path: adminRoutes.root,
     element: <App />,
     children: [
       {
-        path: "/admin/main",
+        path: adminRoutes.main,
         element: (
           <Suspense fallback={"Loading..."}>
             <About />
@@ -17,10 +19,13 @@ const routes = [
         ),
       },
       {
-        path: "/admin/second",
+        path: adminRoutes.second,
         element: (
           <Suspense fallback={"Loading..."}>
-            <div style={{ color: "red" }}>second admin page</div>
+            <div>
+              <h2>From Admin:</h2>
+              <UserCard username="Andrei" />
+            </div>
           </Suspense>
         ),
       },
