@@ -1,0 +1,17 @@
+.button {
+  background: green;
+  padding: 10px 50px;
+
+  &:hover {
+    background: red;
+  }
+}
+
+.value {
+  font-size: 30px;
+  color: red;
+}
+
+.icon {
+  color: red;
+}
