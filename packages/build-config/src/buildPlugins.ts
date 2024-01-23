@@ -21,6 +21,7 @@ export function buildPlugins({
     new HtmlWebpackPlugin({
       template: paths.html,
       favicon: path.resolve(paths.public, "favicon.png"),
+      publicPath: "/"
     }),
     new DefinePlugin({
       __PLATFORM__: JSON.stringify(platform),
